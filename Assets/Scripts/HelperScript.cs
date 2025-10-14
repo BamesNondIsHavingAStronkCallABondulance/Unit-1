@@ -2,15 +2,30 @@ using UnityEngine;
 
 public class HelperScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void FlipObject(bool flip)
     {
-        
+        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+
+        if (flip == true)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Hello(bool hello)
     {
-        
+        if (Input.GetKeyDown("h") == true)
+        {
+            print("hello world");
+            hello = true;
+        }
+        else
+        {
+            hello = false;
+        }
     }
 }

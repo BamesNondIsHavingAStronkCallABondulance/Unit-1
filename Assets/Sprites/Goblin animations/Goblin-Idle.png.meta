@@ -138,12 +138,12 @@ TextureImporter:
       name: Goblin-Idle_0
       rect:
         serializedVersion: 2
-        x: 10
+        x: 43
         y: 1536
-        width: 206
-        height: 186
-      alignment: 9
-      pivot: {x: 0.49880767, y: 0.00010183067}
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -157,35 +157,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Idle_1
-      rect:
-        serializedVersion: 2
-        x: 516
-        y: 1537
-        width: 204
-        height: 186
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fa64fd0be41f1d6a0800000000000000
-      internalID: -6426089873003821393
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Goblin-Idle_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1536
-        width: 197
-        height: 186
+        x: 560
+        y: 1535
+        width: 128
+        height: 128
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,35 +179,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Idle_3
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 1536
-        width: 196
-        height: 188
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 367a2cbae0dd9d840800000000000000
-      internalID: 5249469895757965155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Goblin-Idle_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 512
-        height: 512
+        x: 1067
+        y: 1534
+        width: 128
+        height: 128
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,35 +201,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Idle_5
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 304358bb4997bfb4dbb24cbd4760d0fb
-      internalID: -1620826922
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Goblin-Idle_6
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1024
-        width: 512
-        height: 512
+        x: 1573
+        y: 1536
+        width: 128
+        height: 128
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,28 +218,6 @@ TextureImporter:
       bones: []
       spriteID: b266efb95157a2c48b8b9ca7c6f68988
       internalID: 548294958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goblin-Idle_7
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d1f1e723f6fbf349875ddca5e1fdfb0
-      internalID: 1942636914
       vertices: []
       indices: 
       edges: []
@@ -324,16 +236,24 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":512.0,"y":512.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Goblin-Idle_0: -947298342294641004
       Goblin-Idle_1: -6426089873003821393
+      Goblin-Idle_10: -1245793202
+      Goblin-Idle_11: 236976773
+      Goblin-Idle_12: -2009413290
+      Goblin-Idle_13: 2105996657
+      Goblin-Idle_14: 1238248998
+      Goblin-Idle_15: 807978084
       Goblin-Idle_2: -167278533344515279
       Goblin-Idle_3: 5249469895757965155
       Goblin-Idle_4: 714868268
       Goblin-Idle_5: -1620826922
       Goblin-Idle_6: 548294958
       Goblin-Idle_7: 1942636914
+      Goblin-Idle_8: 265801009
+      Goblin-Idle_9: 938159594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

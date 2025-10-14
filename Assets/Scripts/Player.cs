@@ -6,15 +6,20 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     bool isGrounded;
     public Animator anim;
-
+    public GameObject weapon;
     public LayerMask groundLayerMask;
+    public LayerMask enemyLayerMask;
+    HelperScript helper;
+    bool isFacingRight;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
         anim = GetComponent<Animator>();
 
+        enemyLayerMask = LayerMask.GetMask("Enemy");
         groundLayerMask = LayerMask.GetMask("Ground");
+        helper = gameObject.AddComponent<HelperScript>();
     }
 
     void Update()
@@ -30,12 +35,16 @@ public class Player : MonoBehaviour
             xvel = -5;
             anim.SetBool("isWalking", true);
             anim.SetBool("isIdle", false);
+            helper.FlipObject(true);
+            isFacingRight = false;
         }
         if (Input.GetKey("d"))
         {
             xvel = 5;
             anim.SetBool("isWalking", true);
             anim.SetBool("isIdle", false);
+            helper.FlipObject(false);
+            isFacingRight = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
@@ -49,6 +58,7 @@ public class Player : MonoBehaviour
         rb.linearVelocity = new Vector2(xvel, yvel);
 
         GroundCheck();
+        ShootBone();
 
         anim.SetBool("isJumping", false);
 
@@ -76,5 +86,31 @@ public class Player : MonoBehaviour
         Color hitColor = Color.burlywood;
 
         Debug.DrawRay(position, Vector2.up * distance, hitColor);
+    }
+
+    void ShootBone()
+    {
+        if (Input.GetKeyDown("f"))
+        {
+
+            if (isFacingRight == true)
+            {
+                GameObject clone;
+                clone = Instantiate(weapon, transform.position, transform.rotation);
+                Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
+                rb.linearVelocity = new Vector2(15, 0);
+
+                rb.transform.position = new Vector3(transform.position.x + 1, transform.position.y + 1);
+            }
+            else
+            {
+                GameObject clone;
+                clone = Instantiate(weapon, transform.position, transform.rotation);
+                Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
+                rb.linearVelocity = new Vector2(-15, 0);
+
+                rb.transform.position = new Vector3(transform.position.x - 1, transform.position.y + 1);
+            }
+        }
     }
 }

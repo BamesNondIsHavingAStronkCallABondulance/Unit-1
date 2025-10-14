@@ -1,45 +1,88 @@
+using UnityEditor;
 using UnityEngine;
 
 public class Goblin : MonoBehaviour
 {
-
-    public Animator anim;
+    HelperScript helper;
 
     public LayerMask groundLayerMask;
 
-    bool hitSomething;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Rigidbody2D rb;
+
+    float xvel, yvel;
+
+    public Animator anim;
+
+    int health = 3;
     void Start()
     {
-        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        xvel = 1;
 
+        anim = GetComponent<Animator>();
+        helper = gameObject.AddComponent<HelperScript>();
         groundLayerMask = LayerMask.GetMask("Ground");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        yvel = rb.linearVelocity.y;
+
+        if (xvel < 0)
+        {
+            if (ExtendedRayCollisionCheck(-0.95f, 0) == false)
+            {
+                xvel = -xvel;
+                helper.FlipObject(false);
+            }
+        }
+        else if (xvel > 0)
+        {
+            if (ExtendedRayCollisionCheck(0.95f, 0) == false)
+            {
+                xvel = -xvel;
+                helper.FlipObject(true);
+            }
+        }
+
+        HealthCheck();
+
+        rb.linearVelocity = new Vector2(xvel, yvel);
     }
 
-    public bool GroundRayCollisionCheck(float xoffs, float yoffs)
+    public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)
     {
-        anim.SetBool("isGrounded", false);
+        float rayLength = 0.2f;
+        bool hitSomething = false;
 
-        Vector2 position = transform.position;
-        Vector2 offset = new Vector2 (xoffs, yoffs);
-        Vector2 direction = Vector2.down;
-        float distance = 0.75f;
+        Vector3 offset = new Vector3(xoffs, yoffs, 0);
 
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayerMask);
+        RaycastHit2D hit;
+
+        hit = Physics2D.Raycast(transform.position + offset, Vector2.down, rayLength, groundLayerMask);
+
         if (hit.collider != null)
         {
-            anim.SetBool("isGrounded", true);
+            hitSomething = true;
         }
-        Color hitColor = Color.burlywood;
-
-        Debug.DrawRay(position, Vector2.up * distance, hitColor);
 
         return hitSomething;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if ( col.gameObject.tag == "Bone")
+        {
+            health -= 1;
+        }
+    }
+
+    void HealthCheck()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
