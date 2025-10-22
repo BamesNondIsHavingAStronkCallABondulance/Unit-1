@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public int currentBoneAmmo;
     public int maxBoneAmmo;
     float invFrames = 2;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,8 +29,10 @@ public class Player : MonoBehaviour
         barrierLayerMask = LayerMask.GetMask("DeathBarrier");
         helper = gameObject.AddComponent<HelperScript>();
         health = 3;
-        currentBoneAmmo = 4;
+        currentBoneAmmo = 8;
         maxBoneAmmo = 12;
+
+        ManagerScript.spawnPoint = transform.position;
     }
 
     void Update()
@@ -82,8 +86,9 @@ public class Player : MonoBehaviour
         rb.linearVelocity = new Vector2(xvel, yvel);
 
         GroundCheck();
-        DeathBarrierCheck();
-        EnemyCheck(0.5f, 1);
+        EnemyCheckLeft(-0.5f, 1);
+        EnemyCheckRight(0.5f, 1);
+        HealthCheck();
 
 
 
@@ -116,7 +121,7 @@ public class Player : MonoBehaviour
         Debug.DrawRay(position, Vector2.up * distance, hitColor);
     }
 
-    void EnemyCheck(float xoffs, float yoffs)
+    void EnemyCheckLeft(float xoffs, float yoffs)
     {
 
         if(invFrames > 0)
@@ -129,38 +134,47 @@ public class Player : MonoBehaviour
         Vector2 position = transform.position;
         Vector2 direction = Vector2.left;
         Vector2 offset = new Vector2(xoffs, yoffs);
-        float distance = 0.3f;
+        float distance = 0.2f;
 
         RaycastHit2D hitleft = Physics2D.Raycast(position + offset, direction, distance, enemyLayerMask);
 
-        Vector2 directionr = Vector2.right;
-
-        RaycastHit2D hitright = Physics2D.Raycast(position + offset, directionr, distance, enemyLayerMask);
-
-        if (hitleft.collider != null || hitright.collider != null)
+        if (hitleft.collider != null)
         {
             health -= 1;
-            invFrames = 1;
+            invFrames = 2;
         }
 
         Color hitColor = Color.burlywood;
 
         Debug.DrawRay(position + offset, Vector2.left * distance, hitColor);
-        Debug.DrawRay(position + offset, Vector2.right * distance, hitColor);
     }
 
-    void DeathBarrierCheck()
+    void EnemyCheckRight(float xoffs, float yoffs)
     {
+
+        if (invFrames > 0)
+        {
+            invFrames -= Time.deltaTime;
+            return;
+        }
+
+
         Vector2 position = transform.position;
-        Vector2 direction = Vector2.down;
+        Vector2 direction = Vector2.right;
+        Vector2 offset = new Vector2(xoffs, yoffs);
         float distance = 0.2f;
 
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, barrierLayerMask);
-        if (hit.collider != null)
+        RaycastHit2D hitright = Physics2D.Raycast(position + offset, direction, distance, enemyLayerMask);
+
+        if (hitright.collider != null)
         {
             health -= 1;
-            transform.position = new Vector2(-177, -109);
+            invFrames = 2;
         }
+
+        Color hitColor = Color.burlywood;
+
+        Debug.DrawRay(position + offset, Vector2.right * distance, hitColor);
     }
 
     void ShootBone()
@@ -187,12 +201,13 @@ public class Player : MonoBehaviour
            }
     }
 
-    public void AddAmmo(int ammoAmount)
+    void HealthCheck()
     {
-        currentBoneAmmo += ammoAmount;
-        if(currentBoneAmmo > maxBoneAmmo)
+        if (health <= 0)
         {
-            currentBoneAmmo = maxBoneAmmo;
+            transform.position = ManagerScript.spawnPoint;
+
+            health = 3;
         }
     }
 }

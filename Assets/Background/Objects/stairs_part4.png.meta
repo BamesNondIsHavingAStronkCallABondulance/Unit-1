@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f8bd8e57e6b552c4e9dc4d862eb3086f
+guid: 60c59a121b6d91e4f95323da777d8485
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5220796779399237066
-    second: tile78_0
+      213: -6317668305501544067
+    second: stairs_part4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,27 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile78_0
+      name: stairs_part4_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 24
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -24, y: 12}
-        - {x: 24, y: 12}
-        - {x: 24, y: 24}
-        - {x: -24, y: 24}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: acd4898820ff37840800000000000000
-      internalID: 5220796779399237066
+      spriteID: d7126d906222358a0800000000000000
+      internalID: -6317668305501544067
       vertices: []
       indices: 
       edges: []
@@ -155,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d8e598f82c7838548bad42c748c14457
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -165,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tile78_0: 5220796779399237066
+      stairs_part4_0: -6317668305501544067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
