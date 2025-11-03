@@ -5,9 +5,7 @@ public class Chestpoint : MonoBehaviour
     private Respawn respawn;
     public Animator anim;
 
-    private void Awake()
-    {
-    }
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -26,6 +24,7 @@ public class Chestpoint : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             ManagerScript.spawnPoint = transform.position;
+            anim.SetBool("Active", true);
         }
     }
 }
